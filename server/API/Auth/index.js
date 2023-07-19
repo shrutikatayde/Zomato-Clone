@@ -35,7 +35,7 @@ Router.post("/signup", async (req, res) => {
             password: hashedPassword
         });
 
-        //JWT Auth Token --> to make transfering data between parties more secure
+        //JWT Auth Token --> to make transfering data between two parties more secure
         const token = jwt.sign({ user: { fullname, email } }, "ZomatoApp");
 
         return res.status(200).json({ token });
