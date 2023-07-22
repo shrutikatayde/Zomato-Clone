@@ -22,11 +22,11 @@ zomato.use(helmet());
 zomato.use(cors());
 
 //For application routes
-//localhost:4000/auth/signup
+//localhost:4040/auth/signup
 zomato.use("/auth", Auth)
 
 zomato.get("/", (req, res) => res.json({ message: "Setup Success Yay!!" }));
 
 zomato.listen(4000, () =>
-    ConnectDB().then(() =>
+    ConnectDB().then(() => 
         console.log("server is up and running")).catch(() => console.log("DB connection failed")));
