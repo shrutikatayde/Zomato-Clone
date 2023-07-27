@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcryptjs";
-import passport from "passport";
+// import passport from "passport";
 
 const Router = express.Router();
 import { UserModel } from "../../database/user/index"
@@ -74,24 +74,24 @@ Access    Public
 Method    GET
 */
 
-Router.get("/google", passport.authenticate("google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"],
-}));
+// Router.get("/google", passport.authenticate("google", {
+//     scope: [
+//         "https://www.googleapis.com/auth/userinfo.profile",
+//         "https://www.googleapis.com/auth/userinfo.email"],
+// }));
 
-/*
-Route     /google/callback
-Descip    Google Signin callback
-Params    None
-Access    Public
-Method    GET
-*/
+// /*
+// Route     /google/callback
+// Descip    Google Signin callback
+// Params    None
+// Access    Public
+// Method    GET
+// */
 
-Router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
-    (req, res) => {
-        return res.json({ token: req.session.passport.user.token });
-}
-);
+// Router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
+//     (req, res) => {
+//         return res.json({ token: req.session.passport.user.token });
+// }
+// );
 
 export default Router;
